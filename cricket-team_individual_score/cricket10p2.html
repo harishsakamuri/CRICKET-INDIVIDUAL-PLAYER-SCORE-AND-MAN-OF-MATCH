@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>TEAM-1 SCORE</h1>
+    <h2><div id="loc"></div></h2>
+    <h1>TEAM-2 SCORE</h1>
+    <h2><div id="loc1"></div></h2>
+    <h1>MAN OF THE MATCH</h1>
+    <h2><div id="player"></div></h2>
+    <h1>MAN OF THE MATCH SCORE</h1>
+    <h2><div id="mom"></div></h2>
+    <script>
+      var t1 = (document.getElementById("loc").innerHTML = localStorage.getItem(
+        "team1"
+      ));
+      var t2 = (document.getElementById(
+        "loc1"
+      ).innerHTML = localStorage.getItem("team2"));
+      if (t1 < t2) {
+        alert("team2 wins");
+        document.getElementById("player").innerHTML = localStorage.getItem(
+          "manofmatcht2"
+        );
+
+        document.getElementById("mom").innerHTML = localStorage.getItem(
+          "topt2"
+        );
+      } else if (t1 > t2) {
+        alert("team1 wins");
+        document.getElementById("player").innerHTML = localStorage.getItem(
+          "manofmatcht1"
+        );
+        document.getElementById("mom").innerHTML = localStorage.getItem(
+          "topt1"
+        );
+      } else {
+        alert("draw");
+      }
+    </script>
+  </body>
+</html>

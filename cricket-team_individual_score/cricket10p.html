@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-xl-6">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">TEAM1</h5>
+                <p>SCORE</p>
+                <h6>PLAYER1</h6>
+                <p id="run10">RUNS :</p>
+                <h6>PLAYER2</h6>
+                <p id="run11">RUNS :</p>
+                <h6>PLAYER3</h6>
+                <p id="run12">RUNS :</p>
+                <h6>PLAYER4</h6>
+                <p id="run13">RUNS :</p>
+                <h6>PLAYER5</h6>
+                <p id="run14">RUNS :</p>
+                <h6>PLAYER6</h6>
+                <p id="run15">RUNS :</p>
+                <h6>PLAYER7</h6>
+                <p id="run16">RUNS :</p>
+                <h6>PLAYER8</h6>
+                <p id="run17">RUNS :</p>
+                <h6>PLAYER9</h6>
+                <p id="run18">RUNS :</p>
+                <h6>PLAYER10</h6>
+                <p id="run19">RUNS :</p>
+                <h6 id="tot1">Total</h6>
+                <button id="butn" onclick="bat1()">total</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-xl-6">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">TEAM2</h5>
+                <p>SCORE</p>
+                <h6>PLAYER1</h6>
+                <p id="run20">RUNS :</p>
+                <h6>PLAYER2</h6>
+                <p id="run21">RUNS :</p>
+                <h6>PLAYER3</h6>
+                <p id="run22">RUNS :</p>
+                <h6>PLAYER4</h6>
+                <p id="run23">RUNS :</p>
+                <h6>PLAYER5</h6>
+                <p id="run24">RUNS :</p>
+                <h6>PLAYER6</h6>
+                <p id="run25">RUNS :</p>
+                <h6>PLAYER7</h6>
+                <p id="run26">RUNS :</p>
+                <h6>PLAYER8</h6>
+                <p id="run27">RUNS :</p>
+                <h6>PLAYER9</h6>
+                <p id="run28">RUNS :</p>
+                <h6>PLAYER10</h6>
+                <p id="run29">RUNS :</p>
+                <h6 id="tot2">Total</h6>
+                <button id="btn" onclick="bat2()">total</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          onclick="window.location.href='C:/Users/Admin/Desktop/zen/cricket10p2.html'"
+        >
+          result
+        </button>
+      </div>
+
+      <script>
+        t1 = [];
+        t11 = [];
+        t2 = [];
+        t12 = [];
+        individualscore = [];
+        ballcount1 = 0;
+        ballcount2 = 0;
+        count1 = 0;
+        count2 = 0;
+        manofmatch1 = [];
+        manofmatch2 = [];
+        var mostrunsplayer;
+        var mostrunsplayer2;
+        var playerscore;
+        var playerscore2;
+
+        let team1data = [
+          { player: "player1", score: null },
+          { player: "player2", score: null },
+          { player: "player3", score: null },
+          { player: "player4", score: null },
+          { player: "player5", score: null },
+          { player: "player6", score: null },
+          { player: "player7", score: null },
+          { player: "player8", score: null },
+          { player: "player9", score: null },
+          { player: "player10", score: null }
+        ];
+
+        let team2data = [
+          { player: "player1", score: null },
+          { player: "player2", score: null },
+          { player: "player3", score: null },
+          { player: "player4", score: null },
+          { player: "player5", score: null },
+          { player: "player6", score: null },
+          { player: "player7", score: null },
+          { player: "player8", score: null },
+          { player: "player9", score: null },
+          { player: "player10", score: null }
+        ];
+
+        var bat1 = function() {
+          if (count1 <= 9) {
+            document.getElementById("btn").disabled = true;
+          } else {
+            document.getElementById("btn").disabled = false;
+          }
+          if (ballcount1 < 60) {
+            var x = document.getElementById("run1" + count1);
+            var score1 = Math.floor(Math.random() * 7);
+            x.innerHTML += score1 + ",";
+            t11.push(score1);
+            t1.push(score1);
+
+            //console.log(t1);
+
+            var total1 = t1.reduce((cnum, pnum) => {
+              return cnum + pnum;
+            }, 0);
+
+            document.getElementById("tot1").innerHTML = total1;
+
+            var p1 = document.getElementById("run1" + count1).innerHTML;
+            // console.log("run1" + count1);
+            // console.log(p1);
+            if (score1 == 0 || t11.length == 6) {
+              individualscore.push(t11);
+              // console.log(a);
+              playerscore = t11.reduce((cnum, pnum) => {
+                return cnum + pnum;
+              }, 0);
+              //console.log(playerscore);
+              manofmatch1.push(playerscore);
+              team1data[count1].score = playerscore;
+              count1++;
+              t11 = [];
+            } else {
+              return;
+            }
+            ballcount1++;
+            //console.log(team1data);
+
+            //console.log(manofmatch1);
+            momt1 = Math.max(...manofmatch1);
+            for (i = 0; i < team1data.length; i++) {
+              console.log(team1data.length);
+              if (momt1 == team1data[i].score) {
+                mostrunsplayer = team1data[i].player;
+                console.log(team1data[i].player);
+              }
+            }
+            console.log(mostrunsplayer);
+            window.localStorage.setItem("team1", total1);
+            window.localStorage.setItem("manofmatcht1", mostrunsplayer);
+            window.localStorage.setItem("topt1", momt1);
+          }
+        };
+
+        var bat2 = function() {
+          if (count2 < 9) {
+            document.getElementById("butn").disabled = true;
+          } else {
+            document.getElementById("butn").disabled = false;
+          }
+          if ((ballcount2 = 60)) {
+            var y = document.getElementById("run2" + count2);
+            var score2 = Math.floor(Math.random() * 7);
+            y.innerHTML += score2 + ",";
+            t12.push(score2);
+            t2.push(score2);
+
+            var total2 = t2.reduce((cnum, pnum) => {
+              return cnum + pnum;
+            }, 0);
+
+            document.getElementById("tot2").innerHTML = total2;
+
+            if (score2 == 0 || t12.length == 6) {
+              count2++;
+              playerscore2 = t12.reduce((cnum, pnum) => {
+                return cnum + pnum;
+              }, 0);
+              // console.log(playerscore2);
+              manofmatch2.push(playerscore2);
+              team2data[count2].score = playerscore2;
+              t12 = [];
+            }
+            // console.log(total)
+          }
+          // console.log(manofmatch2);
+          momt2 = Math.max(...manofmatch2);
+          for (i = 0; i < team2data.length; i++) {
+            console.log(team2data.length);
+            if (momt2 == team2data[i].score) {
+              mostrunsplayer2 = team2data[i].player;
+              console.log(team2data[i].player);
+            }
+          }
+          console.log(momt2);
+          window.localStorage.setItem("team2", total2);
+          window.localStorage.setItem("topt2", momt2);
+          window.localStorage.setItem("manofmatcht2", mostrunsplayer2);
+        };
+      </script>
+    </div>
+  </body>
+</html>
